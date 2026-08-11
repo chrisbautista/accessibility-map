@@ -1,0 +1,464 @@
+/* Accessibility Law World Map.
+   Palette is the supplied terrazzo direction, contrast-corrected: #D1801E fails
+   AA as text on a light ground (4.4:1) and only 2.7:1 as a focus ring, so text
+   and focus use #8F5108 and the raw orange survives as a decorative rule only.*/
+
+:root {
+  --ground: #f1f3f2;
+  --surface: #fafbfa;
+  --sunk: #e7eae9;
+  --ink: #17211f;
+  --ink-2: #4a5654;
+  --rule: #d3d9d6;
+
+  --teal: #374f4e;
+  --teal-text: #2c4241;
+  --clay: #8f5108;
+  --clay-fill: #d1801e;
+
+  --land: #c9cfcd;
+  --land-hatch: #4a5654;
+
+  /* Two-colour focus ring. A single hue cannot clear 3:1 against both the dark
+     covered fill and the light ocean, so the ring is dark-outside/light-inside
+     in this theme and inverted in dark. --focus is the text-safe clay, since raw
+     #d1801e only reaches 2.7:1 on the light ground. */
+  --ring-outer: #17211f;
+  --ring-inner: #fafbfa;
+  --focus: #8f5108;
+
+  --sans: ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #121817;
+    --surface: #1a2221;
+    --sunk: #0d1211;
+    --ink: #e8edeb;
+    --ink-2: #9ba8a5;
+    --rule: #2c3937;
+
+    --teal: #6fa5a2;
+    --teal-text: #7fb0ad;
+    --clay: #e8a75a;
+    --clay-fill: #d1801e;
+  
+    --land: #2a3534;
+    --land-hatch: #7e8c89;
+    --ring-outer: #e8edeb;
+    --ring-inner: #1a2221;
+    --focus: #e8a75a;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground: #121817;
+  --surface: #1a2221;
+  --sunk: #0d1211;
+  --ink: #e8edeb;
+  --ink-2: #9ba8a5;
+  --rule: #2c3937;
+  --teal: #6fa5a2;
+  --teal-text: #7fb0ad;
+  --clay: #e8a75a;
+  --clay-fill: #d1801e;
+  --land: #2a3534;
+  --land-hatch: #7e8c89;
+  --ring-outer: #e8edeb;
+  --ring-inner: #1a2221;
+  --focus: #e8a75a;
+}
+
+:root[data-theme="light"] {
+  --ground: #f1f3f2;
+  --surface: #fafbfa;
+  --sunk: #e7eae9;
+  --ink: #17211f;
+  --ink-2: #4a5654;
+  --rule: #d3d9d6;
+  --teal: #374f4e;
+  --teal-text: #2c4241;
+  --clay: #8f5108;
+  --clay-fill: #d1801e;
+  --land: #c9cfcd;
+  --land-hatch: #4a5654;
+  --ring-outer: #17211f;
+  --ring-inner: #fafbfa;
+  --focus: #8f5108;
+}
+
+* { box-sizing: border-box; }
+
+/* Any element with an explicit `display` outranks the hidden attribute, which
+   silently leaves [hidden] nodes on screen. Several here are flex containers. */
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  padding: 0 1.25rem 4rem;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: .5rem;
+  background: var(--surface);
+  color: var(--ink);
+  padding: .6rem 1rem;
+  border: 2px solid var(--ink);
+  z-index: 10;
+}
+.skip:focus { left: 1.25rem; }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+a { color: var(--teal-text); }
+
+/* ------------------------------------------------------------- masthead -- */
+
+.masthead {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 2.5rem 0 1.5rem;
+  border-bottom: 2px solid var(--ink);
+}
+h1 {
+  font-size: clamp(1.7rem, 5vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin: 0 0 .5rem;
+  text-wrap: balance;
+}
+.standfirst {
+  margin: 0 0 .75rem;
+  color: var(--ink-2);
+  font-family: var(--mono);
+  font-size: .82rem;
+  font-variant-numeric: tabular-nums;
+}
+.disclaimer {
+  margin: 0;
+  max-width: 46rem;
+  font-size: .92rem;
+  color: var(--ink-2);
+  border-left: 3px solid var(--clay-fill);
+  padding-left: .8rem;
+}
+.disclaimer strong { color: var(--ink); }
+
+main { max-width: 62rem; margin: 0 auto; }
+
+.section-heading {
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin: 0 0 .75rem;
+  font-weight: 400;
+}
+
+/* ------------------------------------------------------------- controls -- */
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  margin: 1.75rem 0;
+  max-width: 24rem;
+}
+.controls label {
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+#filter {
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--ink-2);
+  border-radius: 2px;
+  padding: .5rem .6rem;
+}
+
+/* ----------------------------------------------------------------- views -- */
+
+/* flex-wrap, so the panel drops below the map when there isn't room. No
+   breakpoints, no JS, no separate mobile layout. */
+.views {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  align-items: flex-start;
+}
+.map-panel { flex: 1 1 26rem; min-width: 0; }
+.panel-wrap { flex: 1 1 18rem; min-width: 0; }
+
+.map { background: var(--surface); border: 1px solid var(--rule); }
+.map svg { display: block; width: 100%; height: auto; }
+
+.basemap { stroke: none; } /* fill comes from the hatch pattern */
+.hatch-ground { fill: var(--land); }
+.hatch-line { stroke: var(--land-hatch); stroke-width: 1.2; }
+
+/* Fill encodes has-data and nothing else. Every other state is non-colour:
+   stroke weight for hover, a double ring for focus, a persistent ring for
+   selected, hatch for uncovered — resist adding a fifth fill. */
+.jur { cursor: pointer; }
+.jur .fill {
+  fill: var(--teal);
+  stroke: var(--surface);
+  stroke-width: .5;
+  transition: stroke-width .12s ease;
+}
+.jur .halo {
+  fill: none;
+  stroke: var(--ring-outer);
+  stroke-width: 7;
+  opacity: 0;
+  pointer-events: none;
+}
+.jur:hover .fill { stroke: var(--ring-inner); stroke-width: 2; }
+.jur:focus { outline: none; }
+
+/* Selected shows BOTH rings. The inner ring alone is the same colour as the
+   ocean in dark theme, so a selected country was indistinguishable from an
+   unselected one on the map — the panel was the only clue. */
+.jur[aria-pressed="true"] .halo { opacity: 1; stroke-width: 4; }
+.jur[aria-pressed="true"] .fill { stroke: var(--ring-inner); stroke-width: 2.5; }
+
+/* Focus must out-rank selected, so it comes last and is visibly heavier. */
+.jur:focus-visible .halo { opacity: 1; stroke-width: 8; }
+.jur:focus-visible .fill { stroke: var(--ring-inner); stroke-width: 3; }
+.jur.dim { opacity: .35; cursor: default; }
+
+@media (prefers-reduced-motion: reduce) {
+  .jur .fill { transition: none; }
+}
+
+.legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: .75rem 0 0;
+  padding: 0;
+  font-size: .82rem;
+  color: var(--ink-2);
+}
+.legend li { display: flex; align-items: center; gap: .45rem; }
+.swatch {
+  width: 1.1rem; height: 1.1rem;
+  border: 1px solid var(--rule);
+  flex: none;
+}
+.swatch-covered { background: var(--teal); }
+.swatch-uncovered {
+  background: var(--land);
+  background-image: repeating-linear-gradient(
+    45deg, transparent 0 2px, var(--land-hatch) 2px 3px
+  );
+}
+
+/* ----------------------------------------------------------------- panel -- */
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: 1rem 1.1rem 1.2rem;
+}
+.panel:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
+.panel .empty { color: var(--ink-2); font-size: .92rem; margin: 0; }
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: .75rem;
+}
+.panel-head h3 { margin: 0; font-size: 1.2rem; letter-spacing: -.01em; }
+.clear {
+  font: inherit;
+  font-size: .8rem;
+  background: none;
+  border: 1px solid var(--ink-2);
+  color: var(--ink);
+  border-radius: 2px;
+  padding: .2rem .55rem;
+  cursor: pointer;
+}
+.clear:hover { background: var(--sunk); }
+
+.instruments { list-style: none; margin: 0; padding: 0; }
+.instruments li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem;
+  padding: .7rem 0;
+  border-top: 1px solid var(--rule);
+}
+.instrument-name { flex: 1 1 100%; font-size: .95rem; }
+.via {
+  font-size: .74rem;
+  font-family: var(--mono);
+  color: var(--teal-text);
+}
+.verified-on {
+  flex: 1 1 100%;
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.children { margin-top: 1.1rem; padding-top: .9rem; border-top: 2px solid var(--rule); }
+.children h4 {
+  margin: 0 0 .5rem;
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  font-weight: 400;
+}
+.child {
+  font: inherit;
+  font-size: .9rem;
+  background: var(--sunk);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  border-radius: 2px;
+  padding: .3rem .6rem;
+  cursor: pointer;
+}
+.child:hover { border-color: var(--ink-2); }
+.note { margin: .9rem 0 0; font-size: .8rem; color: var(--ink-2); }
+
+/* ----------------------------------------------------------------- chips -- */
+
+.chip {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .18em .5em;
+  border-radius: 2px;
+  white-space: nowrap;
+  display: inline-block;
+}
+.tier { border: 1px solid currentColor; }
+.tier-international { color: var(--teal-text); }
+.tier-regional { color: var(--clay); }
+.tier-national { color: var(--ink); }
+.tier-subnational { color: var(--ink-2); }
+
+.source.outline { background: var(--sunk); color: var(--ink-2); }
+.source.verified {
+  background: var(--teal);
+  color: var(--surface);
+  text-decoration: none;
+}
+.source.verified:hover { text-decoration: underline; }
+
+/* ----------------------------------------------------------------- table -- */
+
+.table-section { margin: 2.5rem 0 0; padding-top: 1.75rem; border-top: 2px solid var(--ink); }
+.caption {
+  margin: 0 0 1rem;
+  max-width: 46rem;
+  font-size: .88rem;
+  color: var(--ink-2);
+}
+.scroller { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; min-width: 40rem; }
+
+th, td {
+  text-align: left;
+  padding: .55rem .8rem .55rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  font-size: .9rem;
+  font-weight: 400;
+}
+thead th {
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--ink);
+  white-space: nowrap;
+}
+tbody tr[aria-current="true"] { background: var(--sunk); }
+td.num { font-family: var(--mono); font-size: .74rem; font-variant-numeric: tabular-nums; }
+td.num .age { display: block; color: var(--ink-2); }
+
+.row-select {
+  font: inherit;
+  font-size: .9rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--teal-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  text-align: left;
+}
+.row-select:hover { color: var(--ink); }
+
+.empty { color: var(--ink-2); font-size: .92rem; }
+.error {
+  margin: 0;
+  padding: 1.5rem;
+  color: var(--ink);
+  font-size: .95rem;
+}
+
+/* ---------------------------------------------------------------- footer -- */
+
+footer {
+  max-width: 62rem;
+  margin: 3rem auto 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: .8rem;
+  color: var(--ink-2);
+}
+footer p { margin: 0 0 .6rem; max-width: 46rem; }
+
+/* The table's explicit min-width escapes the scroller and sets the *document*
+   width — on a 375px phone the page measured 507px, so the browser scaled the
+   whole thing down to fit and it read as squished into the left. Below the width
+   where 40rem fits, drop the floor and let the table find its own size. */
+@media (max-width: 44rem) {
+  table { min-width: 0; }
+  /* Chips stay on one line — letting them wrap was tried and is not needed to
+     fit; dropping the min-width floor is the whole fix. The table still scrolls
+     inside .scroller, which is the intended behaviour, and keeps its semantics. */
+  thead th { white-space: normal; font-size: .6rem; }
+  th, td { padding-right: .45rem; font-size: .82rem; }
+  td.num { font-size: .68rem; }
+}

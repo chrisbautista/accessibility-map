@@ -1,0 +1,118 @@
+{
+  "datasetNote": "Instruments named in the CPACC Content Outline, Domain III. Applicabilities marked cpacc-outline are asserted by this tool and not checked against a primary source.",
+  "instruments": {
+    "udhr": {
+      "name": "Universal Declaration of Human Rights",
+      "adopted": 1948,
+      "tier": "international"
+    },
+    "crpd": {
+      "name": "Convention on the Rights of Persons with Disabilities",
+      "adopted": 2006,
+      "tier": "international"
+    },
+    "marrakesh": {
+      "name": "Marrakesh Treaty",
+      "adopted": 2013,
+      "tier": "international"
+    },
+    "euCharter": {
+      "name": "Charter of Fundamental Rights of the European Union",
+      "adopted": 2000,
+      "tier": "regional"
+    },
+    "africanCharter": {
+      "name": "African Charter on Human and Peoples' Rights",
+      "adopted": 1981,
+      "tier": "regional"
+    },
+    "interAmerican": {
+      "name": "Inter-American Convention on the Elimination of All Forms of Discrimination against Persons with Disabilities",
+      "adopted": 1999,
+      "tier": "regional"
+    },
+    "equalityAct2010": {
+      "name": "Equality Act 2010",
+      "adopted": 2010,
+      "tier": "national"
+    },
+    "ada": {
+      "name": "Americans with Disabilities Act of 1990",
+      "adopted": 1990,
+      "tier": "national"
+    },
+    "oda2001": {
+      "name": "Ontarians with Disabilities Act, 2001",
+      "adopted": 2001,
+      "tier": "subnational"
+    }
+  },
+  "jurisdictions": {
+    "GB": {
+      "name": "United Kingdom",
+      "shape": "826",
+      "applies": [
+        { "instrument": "udhr", "source": "cpacc-outline", "verifiedOn": "2026-08-08" },
+        { "instrument": "crpd", "source": "cpacc-outline", "verifiedOn": "2026-08-08" },
+        {
+          "instrument": "equalityAct2010",
+          "source": "primary",
+          "sourceUrl": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+          "verifiedOn": "2026-08-08"
+        }
+      ]
+    },
+    "US": {
+      "name": "United States",
+      "shape": "840",
+      "applies": [
+        { "instrument": "udhr", "source": "cpacc-outline", "verifiedOn": "2026-08-08" },
+        { "instrument": "ada", "source": "cpacc-outline", "verifiedOn": "2026-08-08" }
+      ]
+    },
+    "CA": {
+      "name": "Canada",
+      "shape": "124",
+      "applies": [
+        { "instrument": "udhr", "source": "cpacc-outline", "verifiedOn": "2026-08-08" },
+        { "instrument": "crpd", "source": "cpacc-outline", "verifiedOn": "2026-08-08" },
+        { "instrument": "marrakesh", "source": "cpacc-outline", "verifiedOn": "2026-08-08" }
+      ]
+    },
+    "CA-ON": {
+      "name": "Ontario",
+      "parent": "CA",
+      "applies": [
+        { "instrument": "oda2001", "source": "cpacc-outline", "verifiedOn": "2026-08-08" }
+      ]
+    },
+    "FR": {
+      "name": "France",
+      "shape": "250",
+      "note": "The outline includes the overseas departments — the shape in South America is French Guiana, an EU outermost region.",
+      "applies": [
+        { "instrument": "udhr", "source": "cpacc-outline", "verifiedOn": "2026-08-08" },
+        { "instrument": "crpd", "source": "cpacc-outline", "verifiedOn": "2026-08-08" },
+        { "instrument": "euCharter", "source": "cpacc-outline", "verifiedOn": "2026-08-08" }
+      ]
+    },
+    "ZA": {
+      "name": "South Africa",
+      "shape": "710",
+      "applies": [
+        { "instrument": "udhr", "source": "cpacc-outline", "verifiedOn": "2026-08-08" },
+        { "instrument": "crpd", "source": "cpacc-outline", "verifiedOn": "2026-08-08" },
+        { "instrument": "africanCharter", "source": "cpacc-outline", "verifiedOn": "2026-08-08" }
+      ]
+    },
+    "MX": {
+      "name": "Mexico",
+      "shape": "484",
+      "applies": [
+        { "instrument": "udhr", "source": "cpacc-outline", "verifiedOn": "2026-08-08" },
+        { "instrument": "crpd", "source": "cpacc-outline", "verifiedOn": "2026-08-08" },
+        { "instrument": "interAmerican", "source": "cpacc-outline", "verifiedOn": "2026-08-08" }
+      ]
+    }
+  }
+}

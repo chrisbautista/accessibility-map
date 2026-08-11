@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessibility Law World Map</title>
+<meta name="description" content="Which accessibility instruments apply in which jurisdiction. Seeded from the CPACC Content Outline. Not legal advice.">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<a class="skip" href="#table">Skip to the table</a>
+
+<header class="masthead">
+  <h1>Accessibility Law World Map</h1>
+  <p class="standfirst" id="coverage">Loading the dataset&hellip;</p>
+  <p class="disclaimer">
+    <strong>Not legal advice.</strong> Coverage is partial by design. An unmarked
+    country means this dataset has no entry for it &mdash; not that no
+    accessibility law exists there.
+  </p>
+</header>
+
+<main>
+  <div class="controls">
+    <label for="filter">Filter by jurisdiction</label>
+    <input id="filter" type="search" autocomplete="off" spellcheck="false"
+           placeholder="Canada, United Kingdom&hellip;">
+  </div>
+
+  <!-- Single polite announcer for both filter results and selection . -->
+  <p id="status" class="visually-hidden" role="status" aria-live="polite"></p>
+
+  <div class="views">
+    <section class="map-panel" aria-labelledby="map-heading">
+      <h2 id="map-heading" class="section-heading">Map</h2>
+      <div id="map" class="map"></div>
+      <ul class="legend">
+        <li><span class="swatch swatch-covered" aria-hidden="true"></span> In this dataset &mdash; selectable</li>
+        <li><span class="swatch swatch-uncovered" aria-hidden="true"></span> No entry in this dataset</li>
+      </ul>
+    </section>
+
+    <!-- After the map in DOM order, so Tab reaches it naturally.
+         The heading sits outside the bordered box so it lines up with the map's,
+         and both boxes start at the same height. -->
+    <section class="panel-wrap" aria-labelledby="panel-heading">
+      <h2 id="panel-heading" class="section-heading">Detail</h2>
+      <div id="panel" class="panel" tabindex="-1">
+        <div id="panel-body">
+          <p class="empty">Select a jurisdiction on the map, or a row in the table,
+            to see what applies there.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="table" class="table-section" aria-labelledby="table-heading">
+    <h2 id="table-heading" class="section-heading">All entries</h2>
+    <p class="caption" id="table-caption">
+      Every applicability as recorded. Instruments are listed under the
+      jurisdiction that enacts or ratifies them; a jurisdiction also inherits
+      everything recorded against its parent, which the detail panel resolves.
+    </p>
+    <div class="scroller">
+      <table aria-describedby="table-caption">
+        <thead>
+          <tr>
+            <th scope="col">Jurisdiction</th>
+            <th scope="col">Tier</th>
+            <th scope="col">Instrument</th>
+            <th scope="col">Source</th>
+            <th scope="col">Verified</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p id="empty-rows" class="empty" hidden>No jurisdiction matches that filter.</p>
+  </section>
+</main>
+
+<footer>
+  <p>
+    Dataset seeded from the CPACC Content Outline, Domain III. Basemap derived
+    from <a href="https://www.naturalearthdata.com/">Natural Earth</a> 1:110m
+    (public domain) via <a href="https://github.com/topojson/world-atlas">world-atlas</a>.
+  </p>
+  <p>
+    &ldquo;Verified&rdquo; is the date this tool last checked an entry against its
+    source &mdash; never the date the instrument was enacted. Age is shown so you
+    can judge it; the tool does not judge it for you.
+  </p>
+</footer>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
