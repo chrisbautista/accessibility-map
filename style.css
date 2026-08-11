@@ -449,6 +449,18 @@ footer {
 }
 footer p { margin: 0 0 .6rem; max-width: 46rem; }
 
+.repo { margin-bottom: .9rem; }
+.repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: .88rem;
+  color: var(--ink);
+  text-underline-offset: 3px;
+}
+.repo-link svg { flex: none; }
+.repo-link:hover { color: var(--teal-text); }
+
 /* The table's explicit min-width escapes the scroller and sets the *document*
    width — on a 375px phone the page measured 507px, so the browser scaled the
    whole thing down to fit and it read as squished into the left. Below the width
