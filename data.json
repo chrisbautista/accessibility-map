@@ -45,6 +45,11 @@
       "name": "Ontarians with Disabilities Act, 2001",
       "adopted": 2001,
       "tier": "subnational"
+    },
+    "aoda2005": {
+      "name": "Accessibility for Ontarians with Disabilities Act, 2005",
+      "adopted": 2005,
+      "tier": "subnational"
     }
   },
   "jurisdictions": {
@@ -83,7 +88,8 @@
       "name": "Ontario",
       "parent": "CA",
       "applies": [
-        { "instrument": "oda2001", "source": "cpacc-outline", "verifiedOn": "2026-08-08" }
+        { "instrument": "oda2001", "source": "cpacc-outline", "verifiedOn": "2026-08-08" },
+        { "instrument": "aoda2005", "source": "primary", "sourceUrl": "https://www.ontario.ca/laws/statute/05a11", "verifiedOn": "2026-08-30" }
       ]
     },
     "FR": {
