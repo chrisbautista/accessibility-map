@@ -377,6 +377,14 @@ function renderPanelBody() {
         textContent: `verified ${a.verifiedOn} · ${age(a.verifiedOn)}`,
       })
     );
+    if (a.evidence) {
+      li.append(
+        Object.assign(document.createElement("span"), {
+          className: "evidence",
+          textContent: `“${a.evidence}”`,
+        })
+      );
+    }
     list.appendChild(li);
   }
   frag.appendChild(list);

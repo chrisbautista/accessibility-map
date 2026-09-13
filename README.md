@@ -52,6 +52,9 @@ The outline names instruments but does not assert which countries they bind.
 - **United States → CRPD.** The US signed the CRPD but the Senate did not ratify it, so it is not recorded as applying.
 - **United Kingdom → EU Charter of Fundamental Rights.** The Charter does not form part of UK domestic law after the Brexit transition period.
 - **"Ontario's Disabilities Act 2001"** is recorded as the *Ontarians with Disabilities Act, 2001* (ODA). The better-known *Accessibility for Ontarians with Disabilities Act* is 2005 — a different statute, and a good first candidate to add.
+- **Both Ontario statutes remain `cpacc-outline`, unverified against a primary source.** e-Laws (`ontario.ca/laws/...`) requires JavaScript to render, with no server-rendered path, public API, or PDF export found anywhere on `ontario.ca`, the legacy `e-laws.gov.on.ca` domain, the Legislative Assembly's site, Ontario's official publishing site, or its open-data catalog. Secondary reporting (Wikipedia, CanLII) suggests the older ODA 2001 was never actually repealed — AODA 2005's repeal of it takes effect only on a proclamation date that has never been set — but this tool doesn't record that as verified until it can quote the statute itself. See [docs/plans/verify-cpacc-sources.md](docs/plans/verify-cpacc-sources.md) and ADR-0011.
+
+As of 2026-09-12, 17 of 19 entries in `data.json` are `primary` — see that plan for the full source-by-source record, including where an official site required a fallback (EUR-Lex, ACHPR, the US Code site, and Ontario's Legislative Assembly all block automated fetches; each was routed around except Ontario's own e-Laws, which has no working route at all).
 
 ## Incomplete ##
 
