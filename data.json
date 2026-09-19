@@ -1,5 +1,5 @@
 {
-  "datasetNote": "Instruments named in the CPACC Content Outline, Domain III. Applicabilities marked cpacc-outline are asserted by this tool and not checked against a primary source.",
+  "datasetNote": "Instruments named in the CPACC Content Outline, Domain III, extended over time with directly researched primary-source entries. Applicabilities marked cpacc-outline are asserted by this tool and not checked against a primary source; primary entries are checked against the statute or ratification record itself.",
   "instruments": {
     "udhr": {
       "name": "Universal Declaration of Human Rights",
@@ -50,6 +50,56 @@
       "name": "Accessibility for Ontarians with Disabilities Act, 2005",
       "adopted": 2005,
       "tier": "subnational"
+    },
+    "section508": {
+      "name": "Section 508 of the Rehabilitation Act, as amended",
+      "adopted": 1998,
+      "tier": "national"
+    },
+    "aca2019": {
+      "name": "Accessible Canada Act",
+      "adopted": 2019,
+      "tier": "national"
+    },
+    "pepuda2000": {
+      "name": "Promotion of Equality and Prevention of Unfair Discrimination Act 4 of 2000",
+      "adopted": 2000,
+      "tier": "national"
+    },
+    "lgipd2011": {
+      "name": "Ley General para la Inclusión de las Personas con Discapacidad",
+      "adopted": 2011,
+      "tier": "national"
+    },
+    "dda1992": {
+      "name": "Disability Discrimination Act 1992",
+      "adopted": 1992,
+      "tier": "national"
+    },
+    "bgg2002": {
+      "name": "Behindertengleichstellungsgesetz (Act on Equal Opportunities for Persons with Disabilities)",
+      "adopted": 2002,
+      "tier": "national"
+    },
+    "lbi2015": {
+      "name": "Lei Brasileira de Inclusão da Pessoa com Deficiência (Estatuto da Pessoa com Deficiência)",
+      "adopted": 2015,
+      "tier": "national"
+    },
+    "jpDisabilityAct2013": {
+      "name": "Act for Eliminating Discrimination Against Persons with Disabilities",
+      "adopted": 2013,
+      "tier": "national"
+    },
+    "eaa2019": {
+      "name": "European Accessibility Act (Directive (EU) 2019/882)",
+      "adopted": 2019,
+      "tier": "regional"
+    },
+    "wad2016": {
+      "name": "Web Accessibility Directive (Directive (EU) 2016/2102)",
+      "adopted": 2016,
+      "tier": "regional"
     }
   },
   "jurisdictions": {
@@ -97,6 +147,13 @@
           "sourceUrl": "https://www.ada.gov/law-and-regs/ada/",
           "evidence": "\"Americans with Disabilities Act of 1990, As Amended\" — official text page, codified at Title 42 U.S.C. (US Department of Justice, ADA.gov)",
           "verifiedOn": "2026-09-12"
+        },
+        {
+          "instrument": "section508",
+          "source": "primary",
+          "sourceUrl": "https://www.section508.gov/manage/laws-and-policies/section-508-law/",
+          "evidence": "\"29 U.S.C. §794d. Electronic and Information Technology Requirements for Federal departments and agencies\" — \"each Federal department or agency ... shall ensure ... that the electronic and information technology allows ... individuals with disabilities ... to have access to and use of information and data that is comparable to the access to and use of the information and data by\" persons without disabilities; standards required \"not later than 18 months after August 7, 1998.\" (Section508.gov, official U.S. government reproduction of the codified text — uscode.house.gov unreachable this session, consistent with the prior plan's finding)",
+          "verifiedOn": "2026-09-13"
         }
       ]
     },
@@ -124,6 +181,13 @@
           "sourceUrl": "https://www.wipo.int/wipolex/en/treaties/ShowResults?search_what=C&treaty_id=843",
           "evidence": "Canada — Accession: June 30, 2016; entry into force September 30, 2016",
           "verifiedOn": "2026-09-12"
+        },
+        {
+          "instrument": "aca2019",
+          "source": "primary",
+          "sourceUrl": "https://laws-lois.justice.gc.ca/eng/acts/a-0.6/FullText.html",
+          "evidence": "\"Accessible Canada Act, S.C. 2019, c. 10 — Assented to 2019-06-21 — An Act to ensure a barrier-free Canada.\" (Justice Laws Website, official consolidation)",
+          "verifiedOn": "2026-09-13"
         }
       ]
     },
@@ -168,6 +232,20 @@
           "sourceUrl": "https://european-union.europa.eu/principles-countries-history/eu-countries/france_en",
           "evidence": "France: \"EU Member State: since 1 January 1958\" (european-union.europa.eu). Charter Article 51(1) (europarl.europa.eu/charter/pdf/text_en.pdf): \"The provisions of this Charter are addressed to the institutions and bodies of the Union … and to the Member States only when they are implementing Union law.\"",
           "verifiedOn": "2026-09-12"
+        },
+        {
+          "instrument": "eaa2019",
+          "source": "primary",
+          "sourceUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32019L0882",
+          "evidence": "\"DIRECTIVE (EU) 2019/882 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 17 April 2019 on the accessibility requirements for products and services\" — \"Member States shall adopt and publish, by 28 June 2022, the laws, regulations and administrative provisions necessary to comply with this Directive ... They shall apply those measures from 28 June 2025.\" (Art. 31) Binds France as an EU member state. (eur-lex.europa.eu, Official Journal of the EU)",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "wad2016",
+          "source": "primary",
+          "sourceUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32016L2102",
+          "evidence": "\"DIRECTIVE (EU) 2016/2102 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 26 October 2016 on the accessibility of the websites and mobile applications of public sector bodies\" — \"Member States shall bring into force the laws, regulations and administrative provisions necessary to comply with this Directive by 23 September 2018.\" (Art. 12) Binds France as an EU member state. (eur-lex.europa.eu, Official Journal of the EU)",
+          "verifiedOn": "2026-09-13"
         }
       ]
     },
@@ -195,6 +273,13 @@
           "sourceUrl": "https://au.int/sites/default/files/treaties/36390-sl-african_charter_on_human_and_peoples_rights_2.pdf",
           "evidence": "South Africa — Signature 09/07/1996, Ratification/Accession 09/07/1996, Date Deposited 09/07/1996 (AU official status list, dated 15/06/2017)",
           "verifiedOn": "2026-09-12"
+        },
+        {
+          "instrument": "pepuda2000",
+          "source": "primary",
+          "sourceUrl": "https://justice.gov.za/legislation/acts/2000-004.pdf",
+          "evidence": "\"Promotion of Equality and Prevention of Unfair Discrimination Act 4 of 2000\" [ASSENTED TO 2 FEBRUARY 2000], published in GG 20876 of 9 February 2000. S. 9: \"no person may unfairly discriminate against any person on the ground of disability, including ... (b) contravening the code of practice or regulations of the South African Bureau of Standards that govern environmental accessibility.\" (justice.gov.za, South African Department of Justice and Constitutional Development)",
+          "verifiedOn": "2026-09-13"
         }
       ]
     },
@@ -222,6 +307,163 @@
           "sourceUrl": "https://www.oas.org/juridico/english/sigs/a-65.html",
           "evidence": "Mexico — Signature 06/08/99, Ratification/Accession 12/06/00, Deposit 01/25/01, RA (OAS Department of International Law, treaty A-65)",
           "verifiedOn": "2026-09-12"
+        },
+        {
+          "instrument": "lgipd2011",
+          "source": "primary",
+          "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGIPD.pdf",
+          "evidence": "\"LEY GENERAL PARA LA INCLUSIÓN DE LAS PERSONAS CON DISCAPACIDAD — Nueva Ley publicada en el Diario Oficial de la Federación el 30 de mayo de 2011\" [\"New Law published in the Official Gazette of the Federation on 30 May 2011\"] — texto vigente, última reforma DOF 14-06-2024. (diputados.gob.mx, Cámara de Diputados, official consolidated text)",
+          "verifiedOn": "2026-09-13"
+        }
+      ]
+    },
+    "AU": {
+      "name": "Australia",
+      "shape": "036",
+      "applies": [
+        {
+          "instrument": "udhr",
+          "source": "primary",
+          "sourceUrl": "https://www.un.org/en/about-us/universal-declaration-of-human-rights",
+          "evidence": "Proclaimed by UN General Assembly resolution 217 A, Paris, 10 Dec 1948, \"as a common standard of achievements for all peoples and all nations\"; non-binding, no ratification process — recorded here on UN membership, not a treaty action.",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "crpd",
+          "source": "primary",
+          "sourceUrl": "https://treaties.un.org/Pages/ViewDetails.aspx?src=TREATY&mtdsg_no=IV-15&chapter=4&clang=_en",
+          "evidence": "Australia — Signature 30 Mar 2007, Ratification 17 Jul 2008",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "dda1992",
+          "source": "primary",
+          "sourceUrl": "https://www.legislation.gov.au/C2004A04426/latest/text",
+          "evidence": "\"Disability Discrimination Act 1992 No. 135, 1992 — Compilation No. 40 — Compilation date: 1 July 2026 — Includes amendments: Act No. 17, 2025\" — \"This is a compilation of the Disability Discrimination Act 1992 that shows the text of the law as amended and in force on 1 July 2026.\" (legislation.gov.au, Federal Register of Legislation, Australian Government)",
+          "verifiedOn": "2026-09-13"
+        }
+      ]
+    },
+    "DE": {
+      "name": "Germany",
+      "shape": "276",
+      "applies": [
+        {
+          "instrument": "udhr",
+          "source": "primary",
+          "sourceUrl": "https://www.un.org/en/about-us/universal-declaration-of-human-rights",
+          "evidence": "Proclaimed by UN General Assembly resolution 217 A, Paris, 10 Dec 1948, \"as a common standard of achievements for all peoples and all nations\"; non-binding, no ratification process — recorded here on UN membership, not a treaty action.",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "crpd",
+          "source": "primary",
+          "sourceUrl": "https://treaties.un.org/Pages/ViewDetails.aspx?src=TREATY&mtdsg_no=IV-15&chapter=4&clang=_en",
+          "evidence": "Germany — Signature 30 Mar 2007, Ratification 24 Feb 2009",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "euCharter",
+          "source": "primary",
+          "sourceUrl": "https://european-union.europa.eu/principles-countries-history/eu-countries/germany_en",
+          "evidence": "Germany: \"EU Member State since 1958\" (european-union.europa.eu). Charter Article 51(1) (fra.europa.eu, EU Agency for Fundamental Rights, fetched after europarl.europa.eu's PDF returned an AWS WAF challenge): \"The provisions of this Charter are addressed to the institutions, bodies, offices and agencies of the Union ... and to the Member States only when they are implementing Union law.\"",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "eaa2019",
+          "source": "primary",
+          "sourceUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32019L0882",
+          "evidence": "\"DIRECTIVE (EU) 2019/882 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 17 April 2019 on the accessibility requirements for products and services\" — \"Member States shall adopt and publish, by 28 June 2022, the laws, regulations and administrative provisions necessary to comply with this Directive ... They shall apply those measures from 28 June 2025.\" (Art. 31) Binds Germany as an EU member state. (eur-lex.europa.eu, Official Journal of the EU)",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "wad2016",
+          "source": "primary",
+          "sourceUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32016L2102",
+          "evidence": "\"DIRECTIVE (EU) 2016/2102 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 26 October 2016 on the accessibility of the websites and mobile applications of public sector bodies\" — \"Member States shall bring into force the laws, regulations and administrative provisions necessary to comply with this Directive by 23 September 2018.\" (Art. 12) Binds Germany as an EU member state. (eur-lex.europa.eu, Official Journal of the EU)",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "bgg2002",
+          "source": "primary",
+          "sourceUrl": "https://www.gesetze-im-internet.de/bgg/BJNR146800002.html",
+          "evidence": "\"Behindertengleichstellungsgesetz vom 27. April 2002 (BGBl. I S. 1467, 1468), das zuletzt durch Artikel 7 des Gesetzes vom 23. Mai 2022 (BGBl. I S. 760) geändert worden ist\" [\"Act on Equal Opportunities for Persons with Disabilities of 27 April 2002 ..., last amended by Article 7 of the Act of 23 May 2022\"]; Ausfertigungsdatum (date of issue): 27.04.2002. (gesetze-im-internet.de, Federal Ministry of Justice's official statute portal)",
+          "verifiedOn": "2026-09-13"
+        }
+      ]
+    },
+    "IN": {
+      "name": "India",
+      "shape": "356",
+      "note": "The outline follows Natural Earth's boundary conventions around Jammu and Kashmir and Arunachal Pradesh, both subject to territorial dispute; it reflects no position on either.",
+      "applies": [
+        {
+          "instrument": "udhr",
+          "source": "primary",
+          "sourceUrl": "https://www.un.org/en/about-us/universal-declaration-of-human-rights",
+          "evidence": "Proclaimed by UN General Assembly resolution 217 A, Paris, 10 Dec 1948, \"as a common standard of achievements for all peoples and all nations\"; non-binding, no ratification process — recorded here on UN membership, not a treaty action.",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "crpd",
+          "source": "primary",
+          "sourceUrl": "https://treaties.un.org/Pages/ViewDetails.aspx?src=TREATY&mtdsg_no=IV-15&chapter=4&clang=_en",
+          "evidence": "India — Signature 30 Mar 2007, Ratification 1 Oct 2007",
+          "verifiedOn": "2026-09-13"
+        }
+      ]
+    },
+    "BR": {
+      "name": "Brazil",
+      "shape": "076",
+      "applies": [
+        {
+          "instrument": "udhr",
+          "source": "primary",
+          "sourceUrl": "https://www.un.org/en/about-us/universal-declaration-of-human-rights",
+          "evidence": "Proclaimed by UN General Assembly resolution 217 A, Paris, 10 Dec 1948, \"as a common standard of achievements for all peoples and all nations\"; non-binding, no ratification process — recorded here on UN membership, not a treaty action.",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "crpd",
+          "source": "primary",
+          "sourceUrl": "https://treaties.un.org/Pages/ViewDetails.aspx?src=TREATY&mtdsg_no=IV-15&chapter=4&clang=_en",
+          "evidence": "Brazil — Signature 30 Mar 2007, Ratification 1 Aug 2008",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "lbi2015",
+          "source": "primary",
+          "sourceUrl": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm",
+          "evidence": "\"LEI Nº 13.146, DE 6 DE JULHO DE 2015 ... Institui a Lei Brasileira de Inclusão da Pessoa com Deficiência (Estatuto da Pessoa com Deficiência)\" [\"Establishes the Brazilian Law for the Inclusion of Persons with Disabilities (Statute of Persons with Disabilities)\"] (planalto.gov.br, Presidência da República, official)",
+          "verifiedOn": "2026-09-13"
+        }
+      ]
+    },
+    "JP": {
+      "name": "Japan",
+      "shape": "392",
+      "applies": [
+        {
+          "instrument": "udhr",
+          "source": "primary",
+          "sourceUrl": "https://www.un.org/en/about-us/universal-declaration-of-human-rights",
+          "evidence": "Proclaimed by UN General Assembly resolution 217 A, Paris, 10 Dec 1948, \"as a common standard of achievements for all peoples and all nations\"; non-binding, no ratification process — recorded here on UN membership, not a treaty action.",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "crpd",
+          "source": "primary",
+          "sourceUrl": "https://treaties.un.org/Pages/ViewDetails.aspx?src=TREATY&mtdsg_no=IV-15&chapter=4&clang=_en",
+          "evidence": "Japan — Signature 28 Sep 2007, Ratification 20 Jan 2014",
+          "verifiedOn": "2026-09-13"
+        },
+        {
+          "instrument": "jpDisabilityAct2013",
+          "source": "primary",
+          "sourceUrl": "https://www.japaneselawtranslation.go.jp/en/laws/view/4930/en",
+          "evidence": "障害を理由とする差別の解消の推進に関する法律（平成二十五年法律第六十五号） [\"Act on the Promotion of Elimination of Discrimination on the Basis of Disability (Act No. 65 of 2013)\" — title and citation from the Cabinet Office's official Japanese page]. Official English translation (Ministry of Justice, japaneselawtranslation.go.jp): \"Act for Eliminating Discrimination Against Persons with Disabilities\" ... \"This Act comes into effect on April 1, 2016.\" (Supplementary Provisions, Art. 1)",
+          "verifiedOn": "2026-09-13"
         }
       ]
     }
