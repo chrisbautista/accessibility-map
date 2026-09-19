@@ -50,12 +50,24 @@ async function fetchJson(path) {
 
 function fail(err) {
   el.coverage.textContent = "Could not load the dataset.";
-  el.map.innerHTML =
-    `<p class="error"><strong>Could not load the dataset.</strong> ` +
-    `Nothing on this page is showing law data right now. ` +
-    `Technical detail: ${escapeHtml(err.message)}</p>`;
-  el.panelBody.innerHTML =
-    `<p class="empty">Unavailable until the dataset loads.</p>`;
+
+  const p = document.createElement("p");
+  p.className = "error";
+  p.append(
+    Object.assign(document.createElement("strong"), {
+      textContent: "Could not load the dataset.",
+    }),
+    ` Nothing on this page is showing law data right now. Technical detail: ${err.message}`
+  );
+  el.map.replaceChildren(p);
+
+  el.panelBody.replaceChildren(
+    Object.assign(document.createElement("p"), {
+      className: "empty",
+      textContent: "Unavailable until the dataset loads.",
+    })
+  );
+
   // Hide every control and surface that would otherwise imply working data.
   for (const sel of [".controls", ".legend", ".table-section"]) {
     document.querySelector(sel).hidden = true;
@@ -345,9 +357,23 @@ function renderPanelBody() {
 
   const head = document.createElement("div");
   head.className = "panel-head";
-  head.innerHTML =
-    `<h3>${escapeHtml(j.name)}</h3>` +
-    `<button type="button" class="clear" id="clear">Clear<span class="visually-hidden"> selection</span></button>`;
+
+  const clearBtn = document.createElement("button");
+  clearBtn.type = "button";
+  clearBtn.className = "clear";
+  clearBtn.id = "clear";
+  clearBtn.append(
+    "Clear",
+    Object.assign(document.createElement("span"), {
+      className: "visually-hidden",
+      textContent: " selection",
+    })
+  );
+
+  head.append(
+    Object.assign(document.createElement("h3"), { textContent: j.name }),
+    clearBtn
+  );
   frag.appendChild(head);
 
   const list = document.createElement("ul");
@@ -499,10 +525,4 @@ function wireEvents() {
     render(); // focus deliberately stays put
     announce("Selection cleared.");
   });
-}
-
-function escapeHtml(s) {
-  return String(s).replace(/[&<>"']/g, (c) =>
-    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
-  );
 }

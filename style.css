@@ -4,90 +4,38 @@
    and focus use #8F5108 and the raw orange survives as a decorative rule only.*/
 
 :root {
-  --ground: #f1f3f2;
-  --surface: #fafbfa;
-  --sunk: #e7eae9;
-  --ink: #17211f;
-  --ink-2: #4a5654;
-  --rule: #d3d9d6;
+  color-scheme: light dark;
 
-  --teal: #374f4e;
-  --teal-text: #2c4241;
-  --clay: #8f5108;
+  --ground: light-dark(#f1f3f2, #121817);
+  --surface: light-dark(#fafbfa, #1a2221);
+  --sunk: light-dark(#e7eae9, #0d1211);
+  --ink: light-dark(#17211f, #e8edeb);
+  --ink-2: light-dark(#4a5654, #9ba8a5);
+  --rule: light-dark(#d3d9d6, #2c3937);
+
+  --teal: light-dark(#374f4e, #6fa5a2);
+  --teal-text: light-dark(#2c4241, #7fb0ad);
+  --clay: light-dark(#8f5108, #e8a75a);
   --clay-fill: #d1801e;
 
-  --land: #c9cfcd;
-  --land-hatch: #4a5654;
+  --land: light-dark(#c9cfcd, #2a3534);
+  --land-hatch: light-dark(#4a5654, #7e8c89);
 
   /* Two-colour focus ring. A single hue cannot clear 3:1 against both the dark
      covered fill and the light ocean, so the ring is dark-outside/light-inside
      in this theme and inverted in dark. --focus is the text-safe clay, since raw
      #d1801e only reaches 2.7:1 on the light ground. */
-  --ring-outer: #17211f;
-  --ring-inner: #fafbfa;
-  --focus: #8f5108;
+  --ring-outer: light-dark(#17211f, #e8edeb);
+  --ring-inner: light-dark(#fafbfa, #1a2221);
+  --focus: light-dark(#8f5108, #e8a75a);
 
   --sans: ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ground: #121817;
-    --surface: #1a2221;
-    --sunk: #0d1211;
-    --ink: #e8edeb;
-    --ink-2: #9ba8a5;
-    --rule: #2c3937;
-
-    --teal: #6fa5a2;
-    --teal-text: #7fb0ad;
-    --clay: #e8a75a;
-    --clay-fill: #d1801e;
-  
-    --land: #2a3534;
-    --land-hatch: #7e8c89;
-    --ring-outer: #e8edeb;
-    --ring-inner: #1a2221;
-    --focus: #e8a75a;
-  }
-}
-
-:root[data-theme="dark"] {
-  --ground: #121817;
-  --surface: #1a2221;
-  --sunk: #0d1211;
-  --ink: #e8edeb;
-  --ink-2: #9ba8a5;
-  --rule: #2c3937;
-  --teal: #6fa5a2;
-  --teal-text: #7fb0ad;
-  --clay: #e8a75a;
-  --clay-fill: #d1801e;
-  --land: #2a3534;
-  --land-hatch: #7e8c89;
-  --ring-outer: #e8edeb;
-  --ring-inner: #1a2221;
-  --focus: #e8a75a;
-}
-
-:root[data-theme="light"] {
-  --ground: #f1f3f2;
-  --surface: #fafbfa;
-  --sunk: #e7eae9;
-  --ink: #17211f;
-  --ink-2: #4a5654;
-  --rule: #d3d9d6;
-  --teal: #374f4e;
-  --teal-text: #2c4241;
-  --clay: #8f5108;
-  --clay-fill: #d1801e;
-  --land: #c9cfcd;
-  --land-hatch: #4a5654;
-  --ring-outer: #17211f;
-  --ring-inner: #fafbfa;
-  --focus: #8f5108;
-}
+/* Manual toggle overrides the system preference light-dark() follows by default. */
+:root[data-theme="dark"] { color-scheme: dark; }
+:root[data-theme="light"] { color-scheme: light; }
 
 * { box-sizing: border-box; }
 
@@ -458,14 +406,10 @@ footer p { margin: 0 0 .6rem; max-width: 46rem; }
 
 .repo { margin-bottom: .9rem; }
 .repo-link {
-  display: inline-flex;
-  align-items: center;
-  gap: .45rem;
   font-size: .88rem;
   color: var(--ink);
   text-underline-offset: 3px;
 }
-.repo-link svg { flex: none; }
 .repo-link:hover { color: var(--teal-text); }
 
 /* The table's explicit min-width escapes the scroller and sets the *document*
