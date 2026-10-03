@@ -197,13 +197,17 @@
       "applies": [
         {
           "instrument": "oda2001",
-          "source": "cpacc-outline",
-          "verifiedOn": "2026-08-08"
+          "source": "primary",
+          "sourceUrl": "https://canlii.ca/t/317",
+          "evidence": "\"Note: On a day to be named by proclamation of the Lieutenant Governor, the preamble, sections 1, 2, 4, 8, 9, 14, 15, 17, 23 and the Schedule of this Act are repealed by the Statutes of Ontario, 2005, chapter 11, section 42.\" (CanLII consolidation of Ontarians with Disabilities Act, 2001, SO 2001, c 32 — no proclamation date has been named, so this repeal is not yet in force)",
+          "verifiedOn": "2026-09-30"
         },
         {
           "instrument": "aoda2005",
-          "source": "cpacc-outline",
-          "verifiedOn": "2026-09-12"
+          "source": "primary",
+          "sourceUrl": "https://canlii.ca/t/336",
+          "evidence": "\"Consolidation Period: From April 19, 2016 to the e-Laws currency date. Last amendment: 2016, c. 5, Sched. 1.\" (CanLII consolidation of Accessibility for Ontarians With Disabilities Act, 2005, SO 2005, c 11)",
+          "verifiedOn": "2026-09-30"
         }
       ]
     },
